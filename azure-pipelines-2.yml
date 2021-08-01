@@ -17,6 +17,6 @@ steps:
       # Write your PowerShell commands here.
       
       Write-Host $(System.DefaultWorkingDirectory)
-            Write-Host $(Build.ArtifactStagingDirectory)
-            Write-Host "$env:SYSTEM_ACCESSTOKEN = $(System.AccessToken)"
-            Write-Host $(Pipeline.Workspace)
+      Write-Host $(Build.ArtifactStagingDirectory)
+      Write-Host "$env:SYSTEM_ACCESSTOKEN = $(System.AccessToken)"
+      Write-Host $(Pipeline.Workspace)
