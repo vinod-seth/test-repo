@@ -10,11 +10,11 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+# - script: echo Hello, world!
+#   displayName: 'Run a one-line script'
 
-- powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
-
+# - powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
+- script: echo $(System.DefaultWorkingDirectory)
 # - task: PublishBuildArtifacts@1
 #   inputs:
 #     pathToPublish: '$(Build.ArtifactStagingDirectory)'
@@ -23,14 +23,14 @@ steps:
 #   inputs:
 #     pathToPublish: '$(Build.ArtifactStagingDirectory)'
 #     artifactName: drop2
-- task: CopyFiles@2
-  inputs:
-    sourceFolder:  '$(Build.SourcesDirectory)'
-    contents: '**' 
-    targetFolder: '$(Build.ArtifactStagingDirectory)'
-- powershell: gci .\ | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
+# - task: CopyFiles@2
+#   inputs:
+#     sourceFolder:  '$(Build.SourcesDirectory)'
+#     contents: '**' 
+#     targetFolder: '$(Build.ArtifactStagingDirectory)'
+# - powershell: gci .\ | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    pathToPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: drop
+# - task: PublishBuildArtifacts@1
+#   inputs:
+#     pathToPublish: '$(Build.ArtifactStagingDirectory)'
+#     artifactName: drop
