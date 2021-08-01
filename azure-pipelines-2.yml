@@ -6,6 +6,8 @@
 trigger:
 - main
 
+variables:
+- group: testgroup
 pool:
   vmImage: ubuntu-latest
 
@@ -20,4 +22,4 @@ steps:
       Write-Host $(Build.ArtifactStagingDirectory)
       Write-Host "$env:SYSTEM_ACCESSTOKEN = $(System.AccessToken)"
       Write-Host $(Pipeline.Workspace)
-      Write-Host "#{test}#"
+      Write-Host $[variables.test]
