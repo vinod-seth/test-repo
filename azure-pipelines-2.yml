@@ -7,9 +7,9 @@ trigger:
 - main
 
 parameters:
-- name: foo
-  type: object
-  default: []
+# - name: foo
+#   type: object
+#   default: []
 - name: myStringName
   type: string
   default: a string value
