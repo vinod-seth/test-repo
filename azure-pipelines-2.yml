@@ -109,6 +109,6 @@ steps:
 ##############################################################
 #   Check for an empty parameter object
 ##############################################################
-- ${{ if eq(length(parameters.foo), 0) }}:
-  - script: echo Foo is empty
-  displayName: Foo is empty
+# - ${{ if eq(length(parameters.foo), 0) }}:
+#   - script: echo Foo is empty
+#   displayName: Foo is empty
