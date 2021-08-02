@@ -7,9 +7,9 @@ trigger:
 - main
 
 parameters:
-- name: foo
-  type: object
-  default: ["hello"]
+# - name: foo
+#   type: object
+#   default: ["hello"]
 - name: myStringName
   type: string
   default: a string value
@@ -109,6 +109,16 @@ steps:
 ##############################################################
 #   Check for an empty parameter object
 ##############################################################
-- ${{ if eq(length(parameters.foo), 0) }}:
-  - script: echo Foo is empty
-    displayName: Foo is empty
+# - ${{ if eq(length(parameters.foo), 0) }}:
+#   - script: echo Foo is empty
+#     displayName: Foo is empty
+- powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop1
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: drop2
