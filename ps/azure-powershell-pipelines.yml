@@ -43,7 +43,7 @@ steps:
       Write-Host $(Pipeline.Workspace)
 - task: PowerShell@2
   inputs:
-    filePath: 'ps\helloworld.ps1'
+    filePath: '/ps/helloworld.ps1'
 - powershell: gci .\ | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
 - task: PublishBuildArtifacts@1
   inputs:
