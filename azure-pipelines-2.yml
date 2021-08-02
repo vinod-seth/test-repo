@@ -20,7 +20,7 @@ parameters:
 - name: test
   displayName: Run Tests?
   type: boolean
-  default: false
+  default: true
 
 variables:
 - group: testgroup
