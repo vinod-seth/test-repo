@@ -21,6 +21,9 @@ parameters:
   displayName: Run Tests?
   type: boolean
   default: true
+- name: configs
+  type: string
+  default: 'x86,x64'
 
 variables:
 - group: testgroup
@@ -63,3 +66,19 @@ steps:
 ##############################################################
 - ${{ if eq(parameters.test, true) }}:
     - script: echo "Running all the tests"
+
+##############################################################
+# Use parameters to set what configuration is used
+##############################################################
+- ${{ if contains(parameters.configs, 'x86') }}:
+  - job: x86
+    steps:
+    - script: echo Building x86...
+- ${{ if contains(parameters.configs, 'x64') }}:
+  - job: x64
+    steps:
+    - script: echo Building x64...
+- ${{ if contains(parameters.configs, 'arm') }}:
+  - job: arm
+    steps:
+    - script: echo Building arm...
