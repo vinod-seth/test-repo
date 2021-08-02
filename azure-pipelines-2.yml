@@ -58,5 +58,8 @@ steps:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
 - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
 - script: echo building $(Build.BuildNumber)
+##############################################################
+#Use conditionals with parameters
+##############################################################
 - ${{ if eq(parameters.test, true) }}:
     - script: echo "Running all the tests"
