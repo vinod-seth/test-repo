@@ -56,10 +56,4 @@ steps:
     Write-Host "$env:SYSTEM_ACCESSTOKEN = $(System.AccessToken)"
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-jobs:
-- job: build
-  displayName: build
-  pool: 
-    vmImage: ${{ parameters.image }}
-  steps:
-  - script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
+- script: echo building $(Build.BuildNumber) with ${{ parameters.image }}
