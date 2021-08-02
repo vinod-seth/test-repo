@@ -111,4 +111,4 @@ steps:
 ##############################################################
 - ${{ if eq(length(parameters.foo), 0) }}:
   - script: echo Foo is empty
-    displayName: Foo is empty
+  displayName: Foo is empty
