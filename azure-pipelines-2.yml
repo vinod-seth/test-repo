@@ -25,3 +25,5 @@ steps:
       Write-Host "$env:SYSTEM_ACCESSTOKEN = $(System.AccessToken)"
       Write-Host $(Pipeline.Workspace)
       Write-Host $(my-passed-variable)
+      Write-Host $(test)
+
