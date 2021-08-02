@@ -6,6 +6,22 @@
 trigger:
 - main
 
+parameters:
+- name: image
+  displayName: 'Pool image'
+  default: ubuntu-latest
+  values:
+  - windows-latest
+  - vs2017-win2016
+  - ubuntu-latest
+  - ubuntu-16.04
+  - macOS-latest
+  - macOS-10.14
+- name: test
+  displayName: Run Tests?
+  type: boolean
+  default: false
+
 variables:
 - group: testgroup
 - name: my-passed-variable
@@ -26,4 +42,9 @@ steps:
       Write-Host $(Pipeline.Workspace)
       Write-Host $(my-passed-variable)
       Write-Host $(test)
+- script: |
+    echo "Hello, world!"
+    echo "Pool image: ${{ parameters.image }}"
+    echo "Run tests? ${{ parameters.test }}"
+  displayName: 'Show runtime parameter values'
 
