@@ -46,4 +46,4 @@ steps:
       Write-Host $(Pipeline.Workspace)
 - task: PowerShell@2
   inputs:
-    filePath: 'ps/helloworld.ps1'
+    filePath: '$(System.DefaultWorkingDirectory)/ps/helloworld.ps1'
