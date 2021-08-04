@@ -9,7 +9,7 @@ trigger:
 parameters:
 - name: foo
   type: object
-  default: ["hello"]
+  default: []
 - name: myStringName
   type: string
   default: a string value
