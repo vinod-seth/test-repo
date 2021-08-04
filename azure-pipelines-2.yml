@@ -7,9 +7,9 @@ trigger:
 - main
 
 parameters:
-# - name: foo
-#   type: object
-#   default: ["hello"]
+- name: foo
+  type: object
+  default: ["hello"]
 - name: myStringName
   type: string
   default: a string value
@@ -103,9 +103,9 @@ steps:
 ##############################################################
 # Loop through parameters
 ##############################################################
-- ${{ each parameter in parameters }}:
-  - script: echo ${{ parameter.Key }} 
-  - script: echo ${{ parameter.Value }}
+# - ${{ each parameter in parameters }}:
+#   - script: echo ${{ parameter.Key }} 
+#   - script: echo ${{ parameter.Value }}
 ##############################################################
 #   Check for an empty parameter object
 ##############################################################
