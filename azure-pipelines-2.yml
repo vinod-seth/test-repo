@@ -112,6 +112,16 @@ steps:
 - ${{ if eq(length(parameters.foo), 0) }}:
   - script: echo Foo is empty
     displayName: Foo is empty
+
+##############################################################
+# Loop through parameters and print if iys not empty
+##############################################################
+- ${{ each parameter in parameters }}:
+  - ${{ if eq(length(parameters.foo), 0) }}:
+    - script: echo Foo is empty
+  - script: echo ${{ parameter.Key }} 
+  - script: echo ${{ parameter.Value }}
+
 - powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
 
 - task: PublishBuildArtifacts@1
