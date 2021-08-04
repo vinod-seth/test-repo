@@ -117,8 +117,8 @@ steps:
 # Loop through parameters and print if iys not empty
 ##############################################################
 - ${{ each parameter in parameters }}:
-  - ${{ if eq(length(parameters.foo), 0) }}:
-    - script: echo Foo is empty
+  - ${{ if eq(length(parameter), 0) }}:
+    - script: echo parameters is empty
   - script: echo ${{ parameter.Key }} 
   - script: echo ${{ parameter.Value }}
 
