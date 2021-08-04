@@ -57,6 +57,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- template: azure-pipelines-1.yml
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
