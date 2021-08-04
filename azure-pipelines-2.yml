@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- main
+- none
 
 parameters:
 - name: foo
@@ -57,7 +57,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-#- template: azure-pipelines-1.yml
+- template: azure-pipelines-1.yml
 - task: PowerShell@2
   inputs:
     targetType: 'inline'
