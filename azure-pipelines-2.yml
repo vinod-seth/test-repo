@@ -7,9 +7,9 @@ trigger:
 - main
 
 parameters:
-# - name: foo
-#   type: object
-#   default: []
+- name: foo
+  type: object
+  default: []
 - name: myStringName
   type: string
   default: a string value
@@ -103,9 +103,9 @@ steps:
 ##############################################################
 # Loop through parameters
 ##############################################################
-- ${{ each parameter in parameters }}:
-  - script: echo ${{ parameter.Key }} 
-  - script: echo ${{ parameter.Value }}
+# - ${{ each parameter in parameters }}:
+#   - script: echo ${{ parameter.Key }} 
+#   - script: echo ${{ parameter.Value }}
 ##############################################################
 #   Check for an empty parameter object
 ##############################################################
@@ -116,11 +116,11 @@ steps:
 ##############################################################
 # Loop through parameters and print if iys not empty
 ##############################################################
-# - ${{ each parameter in parameters }}:
-#   - ${{ if eq(length(parameter), 0) }}:
-#     - script: echo parameters is empty
-#   - script: echo ${{ parameter.Key }} 
-#   - script: echo ${{ parameter.Value }}
+- ${{ each parameter in parameters }}:
+  - ${{ if eq(length(parameter.value), 0) }}:
+    - script: echo ${{ parameter.Key }} is empty
+  - script: echo ${{ parameter.Key }} 
+  - script: echo ${{ parameter.Value }}
 
 - powershell: gci env:* | sort-object name | Format-Table -AutoSize | Out-File $env:BUILD_ARTIFACTSTAGINGDIRECTORY/environment-variables.txt
 
